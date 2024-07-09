@@ -24,22 +24,26 @@ class ViewController: UIViewController {
 
     @IBAction func generatePassword(_ sender: UIButton) {
         textField.isSecureTextEntry = true
+        let password = getRandomString()
+        label.text = password
+        textField.text = password
         activityIndicator.isHidden = false
-
-
         activityIndicator.startAnimating()
-        textField.text = getRandomString()
 
-
+        DispatchQueue.global().async {
+            self.bruteForce(passwordToUnlock: password)
+            DispatchQueue.main.sync {
+                self.activityIndicator.isHidden = true
+                self.textField.isSecureTextEntry = false
+            }
+        }
     }
 
     // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //self.bruteForce(passwordToUnlock: "1!gr")
-
+        activityIndicator.isHidden = true
     }
 
     // MARK: Methods
@@ -49,41 +53,27 @@ class ViewController: UIViewController {
             if isThemeBlack {
                 self.view.backgroundColor = .black
                 label.textColor = .white
-                activityIndicator.color = .blue
             } else {
                 self.view.backgroundColor = .white
+                label.textColor = .black
             }
         }
     }
 
     private func getRandomString() -> String {
-        let lenth = 4
-        return String((0...lenth).compactMap { _ in
+        let lenth = 3
+        return String((1...lenth).compactMap { _ in
             (String().printable.randomElement())
         })
-
-        //return generatedString
     }
 
     private func bruteForce(passwordToUnlock: String) {
-        // let allowedCharacters: [String] = String().printable.map { String($0) }
-
         var password: String = ""
-
-        // Will strangely ends at 0000 instead of ~~~
-        while password != passwordToUnlock { // Increase MAXIMUM_PASSWORD_SIZE value for more
+        while password != passwordToUnlock {
             password = bruteForce.generateBruteForce(password, fromArray: allowedCharacters)
-            //             Your stuff here
-            print(password)
-            // Your stuff here
+            DispatchQueue.main.async {
+                self.label.text = password
+            }
         }
-
-        print(password)
     }
 }
-
-
-
-// генерацию пароля положить в диспатчайтем
-// затем в notify ввксти пароль, скрыть индикатор и тп (в главной очереди тк UI) модер все действия вывести в метод
-// workitem (генерация) на неглавной очереди асинхронно и потом notify на главную + код что выполнить

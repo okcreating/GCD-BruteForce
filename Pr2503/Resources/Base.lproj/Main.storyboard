@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pr2503" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
+                                <rect key="frame" x="108" y="782" width="198" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Change theme"/>
+                                <connections>
+                                    <action selector="changeTheme:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hzM-Qw-pew"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press &quot;Generate&quot; to start" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPu-AZ-SoG">
+                                <rect key="frame" x="36" y="213" width="342" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WMG-E7-gqx">
+                                <rect key="frame" x="100" y="403" width="214" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPQ-P6-HY2">
+                                <rect key="frame" x="100" y="511" width="214" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Generate password"/>
+                                <connections>
+                                    <action selector="generatePassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fLd-bO-WlE"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="oTA-1V-IoP">
+                                <rect key="frame" x="150" y="308.5" width="114" height="20"/>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UPu-AZ-SoG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="B06-zX-0le"/>
+                            <constraint firstItem="UPu-AZ-SoG" firstAttribute="centerX" secondItem="oTA-1V-IoP" secondAttribute="centerX" id="BrD-O0-y3i"/>
+                            <constraint firstItem="UPu-AZ-SoG" firstAttribute="centerX" secondItem="WMG-E7-gqx" secondAttribute="centerX" id="QBf-qc-A6T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3g4-cd-RKK" secondAttribute="bottom" constant="50" id="SvG-Rx-Bgf"/>
+                            <constraint firstItem="3g4-cd-RKK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="108" id="Tse-JF-yZy"/>
+                            <constraint firstItem="oTA-1V-IoP" firstAttribute="top" secondItem="UPu-AZ-SoG" secondAttribute="bottom" constant="75" id="UAF-eW-2al"/>
+                            <constraint firstItem="nPQ-P6-HY2" firstAttribute="top" secondItem="WMG-E7-gqx" secondAttribute="bottom" constant="74" id="ald-UU-bVv"/>
+                            <constraint firstItem="oTA-1V-IoP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="bRf-xB-N2D"/>
+                            <constraint firstItem="WMG-E7-gqx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="cPG-Mp-Ip8"/>
+                            <constraint firstItem="UPu-AZ-SoG" firstAttribute="centerX" secondItem="nPQ-P6-HY2" secondAttribute="centerX" id="hVv-Ds-mOw"/>
+                            <constraint firstItem="UPu-AZ-SoG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="165" id="rT3-Ai-k7k"/>
+                            <constraint firstItem="UPu-AZ-SoG" firstAttribute="centerX" secondItem="3g4-cd-RKK" secondAttribute="centerX" id="tMs-sv-7MR"/>
+                            <constraint firstItem="WMG-E7-gqx" firstAttribute="leading" secondItem="nPQ-P6-HY2" secondAttribute="leading" id="vv9-MD-cdx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oTA-1V-IoP" secondAttribute="trailing" constant="150" id="yUi-OB-jEp"/>
+                            <constraint firstItem="WMG-E7-gqx" firstAttribute="top" secondItem="oTA-1V-IoP" secondAttribute="bottom" constant="74.5" id="zD5-RU-12y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="oTA-1V-IoP" id="4AV-kL-lW7"/>
+                        <outlet property="changeThemeButton" destination="3g4-cd-RKK" id="vtK-O8-pHv"/>
+                        <outlet property="generatePasswordButton" destination="nPQ-P6-HY2" id="XfN-Z7-HM6"/>
+                        <outlet property="label" destination="UPu-AZ-SoG" id="VHY-eU-ztg"/>
+                        <outlet property="textField" destination="WMG-E7-gqx" id="j4W-zS-qBH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

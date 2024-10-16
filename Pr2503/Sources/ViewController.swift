@@ -12,6 +12,18 @@ class ViewController: UIViewController {
 
     // MARK: Properties
 
+    private var isThemeBlack: Bool = false {
+        didSet {
+            if isThemeBlack {
+                self.view.backgroundColor = .black
+                label.textColor = .white
+            } else {
+                self.view.backgroundColor = .white
+                label.textColor = .black
+            }
+        }
+    }
+
     var bruteForce = BruteForce()
 
     let allowedCharacters: [String] = String().printable.map { String($0) }
@@ -29,12 +41,12 @@ class ViewController: UIViewController {
         textField.text = password
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+        generatePasswordButton.isEnabled = false
 
         DispatchQueue.global().async {
             self.bruteForce(passwordToUnlock: password)
             DispatchQueue.main.sync {
-                self.activityIndicator.isHidden = true
-                self.textField.isSecureTextEntry = false
+                self.finish()
             }
         }
     }
@@ -44,21 +56,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
+        textField.isEnabled = false
     }
 
     // MARK: Methods
-
-    private var isThemeBlack: Bool = false {
-        didSet {
-            if isThemeBlack {
-                self.view.backgroundColor = .black
-                label.textColor = .white
-            } else {
-                self.view.backgroundColor = .white
-                label.textColor = .black
-            }
-        }
-    }
 
     private func getRandomString() -> String {
         let lenth = 3
@@ -75,5 +76,11 @@ class ViewController: UIViewController {
                 self.label.text = password
             }
         }
+    }
+
+    private func finish() {
+        self.activityIndicator.isHidden = true
+        self.textField.isSecureTextEntry = false
+        generatePasswordButton.isEnabled = true
     }
 }

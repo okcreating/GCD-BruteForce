@@ -70,10 +70,16 @@ class ViewController: UIViewController {
 
     private func bruteForce(passwordToUnlock: String) {
         var password: String = ""
+        var attemptCount = 0
+
         while password != passwordToUnlock {
             password = bruteForce.generateBruteForce(password, fromArray: allowedCharacters)
-            DispatchQueue.main.async {
-                self.label.text = password
+            attemptCount += 1
+            
+            if attemptCount%1000 == 0 { // display every 1000th attempt only to prevent lagging
+                DispatchQueue.main.async {
+                    self.label.text = password
+                }
             }
         }
     }
